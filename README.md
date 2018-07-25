@@ -33,6 +33,12 @@ $ python setup.py install
 $ pip install .
 ```
 
+* You can watch the demonstration by
+```shell
+$ cd demo
+$ python run_bench.py
+```
+
 ## Usage
 0. Suggested structure of your project
 ```
@@ -43,13 +49,6 @@ your_project/
         benchmarks/         # the directory where your files of benchmark cases locate
             bench_foo.py
 ```
-
-* You can watch the demonstration by
-```shell
-$ cd demo
-$ python run_bench.py
-```
-
 
 1. Write your microbenchmark case
 ```python
