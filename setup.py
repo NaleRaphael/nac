@@ -19,7 +19,7 @@ def setup_package():
     ]
 
     metadata = dict(
-        name='gofft',
+        name='nac',
         version=VERSION,
         description='Write your microbenchmark scripts in unittest-like way.',
         url='https://github.com/NaleRaphael/nac',
