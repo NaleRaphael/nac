@@ -6,7 +6,7 @@ Write your microbenchmark scripts in a unittest-like way.
 * matplotlib >= 1.4.2
 
 ## Installation
-`cd` to this directory, and then
+* `cd` to this directory, and then
 ```shell
 $ python setup.py install
 ```
@@ -21,6 +21,13 @@ your_project/
         benchmarks/         # the directory where your files of benchmark cases locate
             bench_foo.py
 ```
+
+* You can watch the demonstraction by
+```shell
+$ cd demo
+$ python run_bench.py
+```
+
 
 1. Write your microbenchmark case
 ```python
@@ -46,7 +53,7 @@ class BenchFoo(BenchmarkCase):
         # Set parameters for benchmark
         # In this case, we set up a loop that runs 100 times, 3 round in each run.
         self.step = 100     # number of times that loop runs
-        self.rd = 3         # number of times that loop repeated in one 
+        self.rd = 3         # number of times that loop repeated in one run
 
         # If you don't want to save the result of benchmark...
         # self.enable_logging = False
@@ -74,14 +81,17 @@ class BenchFoo(BenchmarkCase):
 2. Write a script to run benchmark
 ```python
 # run_bench.py
-from nac import BenchmarkLoader, BenchmarkRunner, LogPlotter
+from nac import BenchmarkLoader, BenchmarkRunner
+from nac.plotter import LogPlotter
 
 def main():
     loader = BenchmarkLoader()
     suite = loader.discover('.')
-    BenchmarkRunner.run_benchmark_suite(suite)
+    runner = BenchmarkRunner()
+    runner.run_benchmark_suite(suite)
 
     # Plot result of benchmark
+    # All log files will be stored in the directory `bench_log` in default.
     plotter = LogPlotter('bench_log', 'Bench*.csv')
     plotter.plot()
 
