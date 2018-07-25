@@ -1,6 +1,24 @@
 # nac: it's "not a chair", it's a bench
 Write your microbenchmark scripts in a unittest-like way.
 
+## Overview
+This tool is built with the inspiration of [`asv`][asv] and built-in module 
+[`unittest`][unittest]. If you are familiar with one of them, you can pick up this 
+tool quickly.
+
+* This tool is designed for those users who
+  1. want to know the performance of a function when different size of data is given
+  2. want to benchmark several functions which work equivalently but have different 
+     signature
+
+* This tool may not be suitable for those users who
+  1. want to benchmark a function with fixed condition
+     (you probably need to try this: [timeit][timeit])
+  2. want to do a fine profiling over a program
+     (you probably need to try this: [cProfile][cProfile])
+  3. need to trace the performance of a package over their lifetime
+     (you probably need to try this: [asv][asv])
+
 ## Requirement
 * numpy >= 1.9.1
 * matplotlib >= 1.4.2
@@ -109,3 +127,8 @@ if __name__ == '__main__':
 $ cd your_project
 $ python run_bench.py
 ```
+
+[asv]: https://github.com/airspeed-velocity/asv
+[unittest]: https://docs.python.org/2/library/unittest.html
+[timeit]: https://docs.python.org/2/library/timeit.html
+[cProfile]: https://docs.python.org/2/library/profile.html
