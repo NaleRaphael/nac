@@ -63,3 +63,21 @@ class BenchmarkLoader(object):
             su = self.load_cases(attr)
             suite.add_cases([case for case in su])
         return suite
+
+
+def _load_module(name, fn, info=None):
+    import imp
+
+    if info is None:
+        path = os.path.dirname(fn)
+        fo, fn, info = imp.find_module(name, [path])
+    else:
+        fo = open(fn, info[1])
+
+    try:
+        mod = imp.load_module(name, fo, fn, info)
+    except:
+        raise
+    finally:
+        fo.close()
+    return mod
