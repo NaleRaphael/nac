@@ -60,3 +60,6 @@ target/
 
 # Data
 *.csv
+
+# test file
+test.py
