@@ -10,6 +10,10 @@ Write your microbenchmark scripts in a unittest-like way.
 ```shell
 $ python setup.py install
 ```
+  or
+```shell
+$ pip install .
+```
 
 ## Usage
 0. Suggested structure of your project
@@ -22,7 +26,7 @@ your_project/
             bench_foo.py
 ```
 
-* You can watch the demonstraction by
+* You can watch the demonstration by
 ```shell
 $ cd demo
 $ python run_bench.py
