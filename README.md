@@ -1,4 +1,7 @@
 # nac: it's "not a chair", it's a bench
+
+[![Build Status](https://travis-ci.org/NaleRaphael/nac.svg?branch=master)](https://travis-ci.org/NaleRaphael/nac)
+
 Write your microbenchmark scripts in a unittest-like way.
 
 ## Overview
