@@ -1,12 +1,12 @@
 import numpy as np
-from nac import BenchmarkCase
+from nac import TimeBenchmarkCase
 
 # Import your functions to be benchmarked
 from demo import (mul_data_mask, mul_mask_data)
 
 
 # --- Define a benchmark case ---
-class BenchFoo(BenchmarkCase):
+class BenchFoo(TimeBenchmarkCase):
     def set_up(self):
         # Initialize your data (which will be partitioned into several parts, and the size
         # of each part is determined by `step`)

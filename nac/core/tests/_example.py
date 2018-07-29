@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division
 import numpy as np
 
-from nac.core import BenchmarkCase
+from nac.core import BenchmarkCase, TimeBenchmarkCase
 
 
 class FakeStream(object):
@@ -15,7 +15,7 @@ class EmptyCase(BenchmarkCase):
     pass
 
 
-class BenchArrayMultiplication(BenchmarkCase):
+class TimeArrayMultiplication(TimeBenchmarkCase):
     func_list = ['time_foo', 'time_bar']
 
     def set_up(self):

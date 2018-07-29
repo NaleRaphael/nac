@@ -54,7 +54,7 @@ your_project/
 ```python
 # bench_foo.py
 import numpy as np
-from nac import BenchmarkCase
+from nac import TimeBenchmarkCase
 
 # --- Functions for demonstration, you should import functions from your module. ----
 # --- These 2 functions do the same thing, but take input parameters in different order. ---
@@ -65,7 +65,7 @@ def mul_mask_data(mask, data):
     return data*mask
 
 # --- Define a benchmark case ---
-class BenchFoo(BenchmarkCase):
+class BenchFoo(TimeBenchmarkCase):
     def set_up(self):
         # Initialize your data (which will be partitioned into several parts, and the size
         # of each part is determined by `step`)

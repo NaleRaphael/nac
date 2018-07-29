@@ -74,7 +74,7 @@ class BenchmarkRunner(object):
         if not isinstance(suite, nac_suite.BenchmarkSuite):
             raise TypeError('Given suite is not a instance of '
                             '{}.'.format(nac_suite.BenchmarkSuite))
-        try:            
+        try:
             for case in suite:
                 self.run_benchmark(case)
 

@@ -12,7 +12,7 @@ else:
     # On most other platforms the best timer is time.time()
     default_timer = time.time
 
-__all__ = ['BenchmarkCase']
+__all__ = ['BenchmarkCase', 'TimeBenchmarkCase', 'MemBenchmarkCase']
 
 class BenchmarkCase(object):
     data = None
@@ -52,6 +52,14 @@ class BenchmarkCase(object):
                 'proportionally. It should at least equal to `step`.')
 
     def run(self):
+        raise NotImplementedError('This method should be implemented in subclass.')
+
+    def __call__(self):
+        return self.run()
+
+
+class TimeBenchmarkCase(BenchmarkCase):
+    def run(self):
         try:
             self.set_up()
             self._check_bench_args()
@@ -85,13 +93,7 @@ class BenchmarkCase(object):
             self.tear_down()
         return tlog
 
-    def __call__(self):
-        return self.run()
-
-
-class TimeBenchmarkCase(BenchmarkCase):
-    pass
-
 
 class MemBenchmarkCase(BenchmarkCase):
-    pass
+    def run(self):
+        raise NotImplementedError('MemBenchmarkCase is not implemented yet.')

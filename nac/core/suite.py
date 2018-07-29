@@ -10,6 +10,9 @@ class BenchmarkSuite(object):
     def __iter__(self):
         return iter(self._cases)
 
+    def __len__(self):
+        return len(self._cases)
+
     def add_case(self, case):
         if not hasattr(case, '__call__'):
             raise TypeError('Given case is not callable.')
