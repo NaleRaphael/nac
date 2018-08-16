@@ -2,12 +2,37 @@
 from __future__ import absolute_import, print_function
 from setuptools import setup, find_packages
 
+import sys
+
+if sys.version_info[0] >= 3:
+    import builtins
+else:
+    import __builtin__ as builtins
+
+builtins.__NAC_SETUP__ = True
+
+# semantic versioning
+MAJOR = 0
+MINOR = 1
+MICRO = 0
+VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
+
+
+def write_version_py(version_string, fn='nac/version.py'):
+    content = """
+# This file is generated from setup.py
+version = '{version}'
+"""
+
+    f = open(fn, 'w')
+    try:
+        f.write(content.format(version=version_string))
+    finally:
+        f.close
+
+
 def setup_package():
-    # semantic versioning
-    MAJOR = 1
-    MINOR = 0
-    MICRO = 0
-    VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
+    write_version_py(VERSION)
 
     # package to be installed
     EXCLUDED = []
